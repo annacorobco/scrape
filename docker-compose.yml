@@ -1,0 +1,14 @@
+version: '2'
+services:
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: always
+    entrypoint: ['bash', '-c', 'python app.py']
+    ports:
+      - 8080:5000
+    volumes:
+      - ./api:/app
